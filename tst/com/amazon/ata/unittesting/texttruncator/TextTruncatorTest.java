@@ -23,5 +23,42 @@ public class TextTruncatorTest {
     }
 
     /* ADD YOUR TESTS HERE */
+    @Test
+    public void methodUnderTest_descriptiveTestCondition_expectedBehavior() {
+        // GIVEN
+        TextTruncator truncator = new TextTruncator(null);
+        // WHEN
+        String truncatedString = truncator.truncateTo(10);
+        // THEN
+        Assertions.assertEquals("", truncatedString,
+                "Expected doesn't fail on a null String");
+
+    }
+
+    @Test
+    public void methodUnderTest_descriptiveTestCondition_expectedBehavior2() {
+        // GIVEN
+        String name = "ives";
+        TextTruncator truncator = new TextTruncator(name);
+        // WHEN
+        String truncatedString = truncator.truncateTo(4);
+        // THEN
+        Assertions.assertEquals("ives", truncatedString,
+                "Expected to returns a truncated string of the desired length");
+
+    }
+    @Test
+    public void methodUnderTest_descriptiveTestCondition_expectedBehavior3() {
+        // GIVEN
+        String quick = "quickly";
+        TextTruncator truncator = new TextTruncator(quick);
+        // WHEN
+        String truncatedString = truncator.truncateTo(8,"quickly");
+        // THEN
+        Assertions.assertEquals("quickly", truncatedString,
+                "Expected doesn't append suffix if the original String is short enough");
+
+    }
 
 }
+
