@@ -24,7 +24,7 @@ public class TextTruncatorTest {
 
     /* ADD YOUR TESTS HERE */
     @Test
-    public void methodUnderTest_descriptiveTestCondition_expectedBehavior() {
+    public void truncateTo_nullString_doesntFailToNullString() {
         // GIVEN
         TextTruncator truncator = new TextTruncator(null);
         // WHEN
@@ -36,7 +36,7 @@ public class TextTruncatorTest {
     }
 
     @Test
-    public void methodUnderTest_descriptiveTestCondition_expectedBehavior2() {
+    public void truncateTo_stringSameLength_stringOfTheDesiredLength() {
         // GIVEN
         String name = "ives";
         TextTruncator truncator = new TextTruncator(name);
@@ -48,17 +48,16 @@ public class TextTruncatorTest {
 
     }
     @Test
-    public void methodUnderTest_descriptiveTestCondition_expectedBehavior3() {
+    public void truncateTo_stringShorterThanNumChars_doesntAppendSuffixOriginalStringIfShortEnough() {
         // GIVEN
-        String quick = "quickly";
+        String quick = "quick";
         TextTruncator truncator = new TextTruncator(quick);
         // WHEN
-        String truncatedString = truncator.truncateTo(8,"quickly");
+        String truncatedString = truncator.truncateTo(6,"ly");
         // THEN
-        Assertions.assertEquals("quickly", truncatedString,
+        Assertions.assertEquals("quick", truncatedString,
                 "Expected doesn't append suffix if the original String is short enough");
 
     }
 
 }
-
